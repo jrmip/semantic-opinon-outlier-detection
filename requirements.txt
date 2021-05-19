@@ -1,0 +1,6 @@
+numpy
+nltk
+scikit-learn
+textblob
+ml_datasets
+pandas
