@@ -1,10 +1,11 @@
 -e .
 
-numpy
-nltk
-scikit-learn
-textblob
-ml_datasets
-pandas
-pathlib
-click
+numpy==1.20.3
+nltk==3.6.2
+scikit-learn==0.24.2
+textblob==0.15.3
+ml-datasets==0.2.0
+pandas==1.2.4
+pathlib==1.0.1
+click==8.0.0
+pyod==0.8.8
