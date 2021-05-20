@@ -9,3 +9,11 @@ requirements:
 ## Make dataset and prepare features for experiment
 features:
 	$(PYTHON) src/build_features.py --log=info
+
+experiment:
+	$(PYTHON) src/run.py --log=info --total_iter=5
+
+clean:
+	rm -R data
+	rm -R models
+	rm -R SOFOD.egg-info
