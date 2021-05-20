@@ -6,9 +6,6 @@ requirements:
 	$(PYTHON) src/utils/setup_nltk.py
 	$(PYTHON) -m textblob.download_corpora
 
-## Make Dataset
-data:
-	$(PYTHON) src/data/make_dataset.py data/raw data/processed
-
+## Make dataset and prepare features for experiment
 features:
-	$(PYTHON)
+	$(PYTHON) src/build_features.py --log=info
