@@ -91,5 +91,6 @@ target/
 # Virtual env cache
 venv/
 
-models/*
-!models/.gitkeep
+models
+
+data
