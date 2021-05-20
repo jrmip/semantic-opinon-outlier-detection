@@ -8,5 +8,3 @@ ml_datasets
 pandas
 pathlib
 click
-logging
-pickle
