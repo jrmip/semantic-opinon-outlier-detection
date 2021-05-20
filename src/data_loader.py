@@ -1,4 +1,3 @@
-from pathlib import Path
 from ml_datasets import imdb
 from nltk import word_tokenize
 from nltk.corpus import reuters
@@ -40,14 +39,9 @@ NEWSGROUPS_CATEGORIES = {
 
 IMDB_CATEGORIES = {"neg": 0, "pos": 1}
 
-PROJECT_DIR = Path(__file__).resolve().parents[1]
-
 
 class DataLoader:
     def __init__(self):
-        frmt = '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
-        logging.basicConfig(level=logging.INFO, format=frmt)
-
         logger = logging.getLogger(__name__)
 
         logger.info(
