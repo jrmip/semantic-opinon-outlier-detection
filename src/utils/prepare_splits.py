@@ -30,6 +30,8 @@ def prepare_newsgroups(newsgroups, split_size=-1, contamination=0.1):
     # we avoid the case where body of the message is empty
     df = df[df['clean'].astype(bool)]
 
+    df = df.drop(['clean'], axis=1)
+
     splits = {}
 
     for c in df['label'].unique():

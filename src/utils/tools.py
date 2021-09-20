@@ -19,9 +19,11 @@ def run_exp(data, dataset, contamination, split_size=-1):
     # ---------------------------------------------------------
     train = pd.DataFrame(data['tf_train'].toarray())
     train['label'] = data['train']['label']
+    train['clean'] = data['train']['clean']
 
     test = pd.DataFrame(data['tf_test'].toarray())
     test['label'] = data['test']['label']
+    test['clean'] = data['test']['clean']
 
     logger.info("=====TF-IDF=====")
 
@@ -47,9 +49,11 @@ def run_exp(data, dataset, contamination, split_size=-1):
 
         train = pd.DataFrame(data['train_lsa_{}'.format(rank)])
         train['label'] = data['train']['label']
+        train['clean'] = data['train']['clean']
 
         test = pd.DataFrame(data['test_lsa_{}'.format(rank)])
         test['label'] = data['test']['label']
+        test['clean'] = data['test']['clean']
 
         if dataset == 'reuters':
             train = prepare_reuters(train, split_size, contamination)
@@ -74,11 +78,11 @@ def run_exp(data, dataset, contamination, split_size=-1):
 
     train = data['train_vader'].copy()[['neg', 'pos']]
     train['label'] = data['train']['label']
+    train['clean'] = data['train']['clean']
 
     test = data['test_vader'].copy()[['neg', 'pos']]
     test['label'] = data['test']['label']
-
-    logger.info("=====VADER=====")
+    test['clean'] = data['test']['clean']
 
     if dataset == 'reuters':
         train = prepare_reuters(train, split_size, contamination)
@@ -103,7 +107,9 @@ def run_exp(data, dataset, contamination, split_size=-1):
         logger.info("=====LSA-SE-{0}=====".format(rank))
 
         train = pd.DataFrame(data['train_lsa_{}'.format(rank)])
+        train['clean'] = data['train']['clean']
         test = pd.DataFrame(data['test_lsa_{}'.format(rank)])
+        test['clean'] = data['test']['clean']
 
         for pol in ['neg', 'pos']:
             train[pol] = data['train_vader'][pol]
